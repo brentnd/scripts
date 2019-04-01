@@ -9,11 +9,11 @@ else
 fi
 
 # Setup gopath
-grep -qF -- "export GOPATH" ~/.zshrc || echo '
+grep -qF -- "export GOPATH" ~/.zshrc || cat >> ~/.zshrc << EOF
 # Go path
 export GOPATH=~/
 export PATH=$PATH:~/bin
-' >> ~/.zshrc
+EOF
 
 # Include git-get command
 GOPATH=~/ go get github.com/brentnd/git-get
