@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ -z "$NAME" ]; then
+  echo '$NAME is required'
+  exit 1
+fi
+
+if [ -z "$EMAIL" ]; then
+  echo '$EMAIL is required'
+  exit 1
+fi
+
 git config --global user.name "$NAME"
 git config --global user.email "$EMAIL"
 git config --global core.excludesfile ~/.gitignore_global
