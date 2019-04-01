@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if command -v subl > /dev/null; then
+  echo "Sublime is already installed"
+  exit 0
+fi
+
 echo "Installing sublime text"
 
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
