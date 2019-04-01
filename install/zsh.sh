@@ -9,7 +9,7 @@ else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
-sh "./install/nodejs.sh" -H
+bash "./install/nodejs.sh" -H
 git clone git@github.com:sindresorhus/pure.git "$HOME/.oh-my-zsh/custom/pure" || true
 sudo rm -f /usr/local/share/zsh/site-functions/prompt_pure_setup || true
 sudo rm -rf /usr/local/share/zsh/site-functions/async || true
@@ -25,4 +25,3 @@ grep -qF -- "prompt pure" ~/.zshrc || echo "
 autoload -U promptinit; promptinit
 prompt pure
 " >> ~/.zshrc
-source ~/.zshrc

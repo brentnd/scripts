@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 if command -v node > /dev/null; then
   echo "nodejs is already installed"
@@ -10,4 +10,3 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | z
 source ~/.zshrc
 
 nvm install --lts
-source ~/.zshrc

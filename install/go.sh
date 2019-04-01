@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 
 if command -v go > /dev/null; then
@@ -14,7 +14,6 @@ grep -qF -- "export GOPATH" ~/.zshrc || echo '
 export GOPATH=~/
 export PATH=$PATH:~/bin
 ' >> ~/.zshrc
-source ~/.zshrc
 
 # Include git-get command
-go get github.com/brentnd/git-get
+GOPATH=~/ go get github.com/brentnd/git-get

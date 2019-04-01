@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 for f in install/*.sh; do
   sh "$f" -H || break
