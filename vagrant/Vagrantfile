@@ -1,0 +1,28 @@
+# encoding: utf-8
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.hostname = "box.dev"
+
+  config.vm.network "private_network", type: "dhcp"
+  # Enable for shared directory between host and guest
+  # config.vm.synced_folder '~/src', '/home/vagrant/src', type: "nfs"
+
+  # Install xubuntu-desktop and guest additions
+  config.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y xubuntu-desktop xubuntu-community-wallpapers virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
+
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "box.dev"
+    vb.memory = "8192"
+    vb.cpus = 4
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
+  end
+end
