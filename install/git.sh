@@ -1,7 +1,7 @@
 #!/bin/bash
 
-git config --global user.name "Brent Dimmig"
-git config --global user.email "brentdimmig@gmail.com"
+git config --global user.name "$NAME"
+git config --global user.email "$EMAIL"
 git config --global core.excludesfile ~/.gitignore_global
 
 cat > ~/.gitignore_global << EOF
