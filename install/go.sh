@@ -12,7 +12,7 @@ fi
 grep -qF -- "export GOPATH" ~/.zshrc || cat >> ~/.zshrc << EOF
 # Go path
 export GOPATH=~/
-export PATH=$PATH:~/bin
+export PATH=\$PATH:~/bin
 EOF
 
 # Include git-get command
